@@ -22,7 +22,10 @@ Claude Code, Codex, MySQL, `docker ps` and friends print tables like this:
 └───────┴────────┴───────────┘
 ```
 
-They look great in a terminal and fall apart everywhere else. Slack and most chat apps use a proportional font, wrap long lines and have no table syntax, so the grid turns into noise.
+They look great in a terminal and fall apart everywhere else, in two ways:
+
+- **The font.** Chat apps use a proportional font, so the columns stop lining up. Wrapping the table in a code block fixes this part.
+- **The width.** Every row wider than the message area wraps onto several lines, and a code block doesn't help with that. One table row turns into a jumble of half-rows and borders.
 
 Paste the table into ASCII Table Converter and copy it back out in a format that survives:
 

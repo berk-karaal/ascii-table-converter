@@ -28,10 +28,11 @@
   </ol>
 
   <p class="why">
-    Why this exists: tools like Claude Code draw tables with box-drawing characters and pad every
-    cell with spaces so the columns line up in a monospace terminal. Slack and most chat apps use a
-    proportional font, wrap long lines and have no table syntax, so the grid falls apart when you
-    paste it.
+    Why this exists: AI agents and terminals draw tables for a wide, monospace screen. Paste one
+    into Slack or another chat app and it breaks in two ways. The proportional font pushes the
+    columns out of line, and every row wider than the message area wraps onto several lines. A code
+    block fixes the font but not the wrapping, so wide tables still fall apart. The formats here
+    don't depend on line width, and the Code block format re-wraps the table to a width you choose.
   </p>
 </section>
 
@@ -81,7 +82,6 @@
   }
   .why {
     margin: 0;
-    max-width: 70ch;
     font-size: 14px;
     line-height: 1.6;
     color: var(--muted);
