@@ -376,10 +376,11 @@
     width: 68px;
   }
   .rich {
+    position: relative;
+    flex-basis: 100%;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: auto;
   }
 
   .formats {

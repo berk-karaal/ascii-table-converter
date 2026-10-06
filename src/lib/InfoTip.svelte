@@ -29,8 +29,8 @@
 </span>
 
 <style>
+  /* The popover is positioned against the nearest positioned ancestor, so the parent decides where it opens. */
   .info {
-    position: relative;
     display: inline-flex;
   }
   button {
@@ -54,7 +54,7 @@
   [role='tooltip'] {
     position: absolute;
     top: calc(100% + 8px);
-    right: 0;
+    left: 0;
     z-index: 10;
     width: max-content;
     max-width: min(300px, calc(100vw - 32px));
