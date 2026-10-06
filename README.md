@@ -41,7 +41,7 @@ Paste the table into ASCII Table Converter and copy it back out in a format that
 - **Paste anything.** Whole agent replies are fine: text around the tables is ignored, and when there are several tables you pick which one to convert.
 - **Wrapped cells are fixed.** Cells the terminal split over several lines are joined back into one value, or kept as line breaks if you prefer.
 - **11 output formats**, each one click to copy.
-- **Copy as rich table** puts a real HTML table on the clipboard for Google Docs, Notion, Confluence, Gmail, Word and Sheets.
+- **Copy as rich table** puts a real table on the clipboard that pastes as rows and columns into Slack, Google Docs, Notion, Confluence, Gmail, Word and Sheets.
 - **Code block that fits.** The monospace version wraps columns to a width you choose, breaking words only as a last resort.
 - **Remembers your choices**: format, width and options are saved in your browser.
 - **Private by design.** Everything runs in your browser. No uploads, no cookies, no analytics.

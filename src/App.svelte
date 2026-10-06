@@ -172,9 +172,8 @@
               nudge={settings.hasCopied ? undefined : richHtml}
             />
             <InfoTip label="About Copy as rich table">
-              Copies a real table (HTML). Paste it into Google Docs, Notion, Confluence, Gmail, Word
-              or Sheets to get actual rows and columns. For Slack, use the
-              <strong>Chat</strong> formats.
+              Copies a real table. Paste it into Slack, Google Docs, Notion, Confluence, Gmail, Word
+              or Sheets to get actual rows and columns.
             </InfoTip>
           </div>
         {/if}
