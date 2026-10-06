@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        padding: 64px 72px;
+        background: #f7f7f5;
+        color: #1c1c1a;
+        font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        overflow: hidden;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .mark {
+        width: 76px;
+        height: 76px;
+        padding: 15px;
+        border-radius: 20px;
+        background: #4f46e5;
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      h1 {
+        font-size: 58px;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      header p {
+        margin-top: 10px;
+        font-size: 26px;
+        color: #6f6e69;
+      }
+      .demo {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 64px 1fr;
+        align-items: center;
+      }
+      .card {
+        height: 100%;
+        border-radius: 18px;
+        padding: 26px 28px;
+        font:
+          23px/1.2 Menlo,
+          'SF Mono',
+          monospace;
+        white-space: pre;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .before {
+        background: #1c1c1a;
+        color: #d6d5d0;
+      }
+      .after {
+        background: #fff;
+        border: 1.5px solid #e6e5e1;
+        color: #1c1c1a;
+        font-family: -apple-system, 'Helvetica Neue', sans-serif;
+        font-size: 23px;
+        line-height: 1.45;
+        white-space: normal;
+      }
+      .after b {
+        display: block;
+        margin-top: 10px;
+      }
+      .after b:first-child {
+        margin-top: 0;
+      }
+      .after span {
+        display: block;
+        color: #4b4a46;
+      }
+      .emoji {
+        display: inline-block;
+        width: 2ch;
+        text-align: center;
+      }
+      .arrow {
+        text-align: center;
+        font-size: 40px;
+        color: #4f46e5;
+      }
+      .url {
+        position: absolute;
+        right: 72px;
+        top: 86px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #4f46e5;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg class="mark" viewBox="0 0 32 32">
+        <path d="M17 5H8a3 3 0 0 0-3 3v16a3 3 0 0 0 3 3h9" />
+        <path d="M5 12h12M5 19.5h12M11 5v22M17 5v22" />
+        <path d="M21 8.5h6M21 15.75h4M21 23.25h5.5" />
+      </svg>
+      <div>
+        <h1>ASCII Table Converter</h1>
+        <p>Terminal &amp; AI tables → Slack, Markdown, CSV, JSON</p>
+      </div>
+    </header>
+    <div class="url">table.berkkaraal.com</div>
+    <div class="demo">
+      <pre class="card before"><code>┌───────┬────────┬───────────┐
+│ Suite │ Result │ Duration  │
+├───────┼────────┼───────────┤
+│ unit  │ <span class="emoji">✅</span> 412 │ 18 s      │
+│       │ passed │           │
+├───────┼────────┼───────────┤
+│ e2e   │ <span class="emoji">❌</span> 2   │ 6 min,    │
+│       │ failed │ 2 retries │
+└───────┴────────┴───────────┘</code></pre>
+      <div class="arrow">→</div>
+      <div class="card after">
+        <b>unit</b>
+        <span>• Result: ✅ 412 passed</span>
+        <span>• Duration: 18 s</span>
+        <b>e2e</b>
+        <span>• Result: ❌ 2 failed</span>
+        <span>• Duration: 6 min, 2 retries</span>
+      </div>
+    </div>
+  </body>
+</html>
