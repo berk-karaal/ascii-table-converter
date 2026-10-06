@@ -51,11 +51,14 @@
     picked = 0
   }
 
+  const richHtml = $derived(table ? html(table) : '')
+
   function copyRich() {
+    settings.hasCopied = true
     if (!table) return Promise.reject()
     return navigator.clipboard.write([
       new ClipboardItem({
-        'text/html': new Blob([html(table)], { type: 'text/html' }),
+        'text/html': new Blob([richHtml], { type: 'text/html' }),
         'text/plain': new Blob([tsv(table)], { type: 'text/plain' }),
       }),
     ])
@@ -160,13 +163,21 @@
           Code block width
           <input type="number" min="20" max="400" bind:value={settings.width} />
         </label>
-        <div class="rich">
-          <CopyButton copy={copyRich} label="Copy as rich table" />
-          <InfoTip label="About Copy as rich table">
-            Copies a real table (HTML). Paste it into Google Docs, Notion, Confluence, Gmail, Word
-            or Sheets to get actual rows and columns. For Slack, use the <strong>Chat</strong> formats.
-          </InfoTip>
-        </div>
+        {#if table}
+          <div class="rich">
+            <CopyButton
+              copy={copyRich}
+              label="Copy as rich table"
+              primary
+              nudge={settings.hasCopied ? undefined : richHtml}
+            />
+            <InfoTip label="About Copy as rich table">
+              Copies a real table (HTML). Paste it into Google Docs, Notion, Confluence, Gmail, Word
+              or Sheets to get actual rows and columns. For Slack, use the
+              <strong>Chat</strong> formats.
+            </InfoTip>
+          </div>
+        {/if}
       </div>
 
       {#if !table}
@@ -204,7 +215,13 @@
             </div>
           {/each}
         </nav>
-        <OutputCard title={active.label} hint={active.hint} text={active.render(table, options)} />
+        <OutputCard
+          title={active.label}
+          hint={active.hint}
+          text={active.render(table, options)}
+          nudge={!settings.hasCopied}
+          oncopy={() => (settings.hasCopied = true)}
+        />
       {/if}
     </section>
   </main>

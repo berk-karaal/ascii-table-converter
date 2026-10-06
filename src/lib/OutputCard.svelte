@@ -1,7 +1,18 @@
 <script lang="ts">
   import CopyButton from './CopyButton.svelte'
 
-  let { title, hint, text }: { title: string; hint: string; text: string } = $props()
+  let {
+    title,
+    hint,
+    text,
+    nudge,
+    oncopy,
+  }: { title: string; hint: string; text: string; nudge: boolean; oncopy: () => void } = $props()
+
+  function copy() {
+    oncopy()
+    return navigator.clipboard.writeText(text)
+  }
 </script>
 
 <section class="card output">
@@ -10,7 +21,7 @@
       <h3>{title}</h3>
       <p class="muted">{hint}</p>
     </div>
-    <CopyButton copy={() => navigator.clipboard.writeText(text)} primary />
+    <CopyButton {copy} primary nudge={nudge ? text : undefined} />
   </header>
   <pre>{text}</pre>
 </section>

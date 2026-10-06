@@ -3,6 +3,8 @@ export type Settings = {
   width: number
   header: boolean
   keepBreaks: boolean
+  /** Set on the first Copy click; the Copy buttons stop wiggling for good after that. */
+  hasCopied: boolean
 }
 
 const KEY = 'table-reformatter:settings'
@@ -12,6 +14,7 @@ export const DEFAULTS: Settings = {
   width: 80,
   header: true,
   keepBreaks: false,
+  hasCopied: false,
 }
 
 export function loadSettings(): Settings {
